@@ -11,7 +11,7 @@ const mapEmployeeSummaryFromApiToVm = (
 const mapEmployeeSummaryListFromApiToVm = (
   employeeSummary: apiModel.EmployeeSummary[]
 ): viewModel.EmployeeSummary[] =>
-  mapToCollection(employeeSummary, (es) => mapEmployeeSummaryFromApiToVm(es));
+  mapToCollection(employeeSummary, es => mapEmployeeSummaryFromApiToVm(es));
 
 export const mapProjectFromApiToVm = (
   project: apiModel.Project
@@ -19,8 +19,7 @@ export const mapProjectFromApiToVm = (
   return Boolean(project)
     ? {
         ...project,
-        description: project.description, //agregado para q funcione los test de las listas vacias o con datos
-        employees: mapEmployeeSummaryListFromApiToVm(project.employees || []),
+        employees: mapEmployeeSummaryListFromApiToVm(project.employees),
       }
     : viewModel.createEmptyProject();
 };
