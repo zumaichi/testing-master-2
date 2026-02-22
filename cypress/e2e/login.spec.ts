@@ -1,4 +1,4 @@
-describe('login spacs', () => {
+describe('login specs', () => {
   it('visita pagina de login', () => {
     // Arrange
 
@@ -13,10 +13,10 @@ describe('login spacs', () => {
 
     // Act
     cy.visit('/');
-    cy.get('input[name=user]').click();
+    cy.findByRole('textbox', { name: /usuario/i }).click();
 
     // Assert
-    cy.get('input[name=user]').should('have.focus');
+    cy.findByRole('textbox', { name: /usuario/i }).should('have.focus');
   });
 
   it('login correcto', () => {
