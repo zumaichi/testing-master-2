@@ -6,12 +6,17 @@
   "scripts": {
     "start": "run-p -l type-check:watch start:dev",
     "start:dev": "vite --open",
+    "start:dev:ci": "vite",
     "build": "run-p -l type-check build:prod",
     "build:prod": "npm run clean && vite build",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
     "test": "vitest -c ./config/test/config.ts",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "test:e2e": "npm start -- start:e2e",
+    "start:e2e": "cypress open",
+    "test:e2e:ci": "start-server-and-test start:dev:ci http://localhost:5173 start:e2e:ci",
+    "start:e2e:ci": "cypress run"
   },
   "imports": {
     "#*": "./src/*"
