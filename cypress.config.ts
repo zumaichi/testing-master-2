@@ -4,7 +4,7 @@ export default defineConfig({
   allowCypressEnv: false,
 
   e2e: {
-    baseUrl: 'http://localhost:80800',
+    baseUrl: 'http://localhost:8080',
     specPattern: 'cypress/e2e/**/*.spec.{js,jsx,ts,tsx}',
   },
 });
