@@ -4,8 +4,9 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "start": "run-p -l type-check:watch start:dev",
-    "start:dev": "vite --open",
+    "start": "run-p -l type-check:watch start:dev:open",
+    "start:dev": "vite",
+    "start:dev:open": "vite --open",
     "build": "run-p -l type-check build:prod",
     "build:prod": "npm run clean && vite build",
     "type-check": "tsc --noEmit",
@@ -14,8 +15,8 @@
     "clean": "rimraf dist",
     "test:e2e": "npm start -- start:e2e",
     "start:e2e": "cypress open",
-    "test:e2e:ci": "npm start -- -r start:e2e",
-    "start:e2e:ci": "cypress run "
+    "test:e2e:ci": "start-server-and-test start:dev http://localhost:5173 start:e2e:ci",
+    "start:e2e:ci": "cypress run"
   },
   "imports": {
     "#*": "./src/*"
