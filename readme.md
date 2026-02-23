@@ -1,0 +1,1 @@
+en el archivo packge.json en la linea 18 aplico start-server-and-test q fue una solucion q encontre para q el server estuviera ejecutado mientras pasan los test e2e ci ,por q si no no terminaban de pasar

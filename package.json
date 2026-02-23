@@ -15,7 +15,7 @@
     "clean": "rimraf dist",
     "test:e2e": "npm start -- start:e2e",
     "start:e2e": "cypress open",
-    "test:e2e:ci": "start-server-and-test start:dev:ci http://localhost:5173 start:e2e:ci",
+    "test:e2e:ci": "start-server-and-test start:dev:ci http://localhost:5173 start:e2e:ci", //buscando paa solucinar un problema q se me plantaba,me baje estas dependecias de start-server-and-test
     "start:e2e:ci": "cypress run"
   },
   "imports": {
