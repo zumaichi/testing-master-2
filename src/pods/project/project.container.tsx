@@ -16,6 +16,7 @@ export const ProjectContainer: React.FunctionComponent = () => {
 
   const onLoadProject = async () => {
     try {
+      if (!id) return;
       const apiProject = await trackPromise(getProjectById(id));
       const viewModelProject = mapProjectFromApiToVm(apiProject);
       setProject(viewModelProject);
